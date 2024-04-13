@@ -38,12 +38,18 @@ DEMO WEBSITE- https://studentsresult.netlify.app/
 
 5. **View & Print**: View the student's report card and print it as needed.
 
-## 🤝 Contributions
 
+<h3 align="center">
+    ─「 ᴄʀᴇᴅɪᴛs 」─
+</h3>
+
+- <b>[AAKASH GUPTA](https://github.com/itsAakashz/School-Result-Checking-Website/)  ➻  [sᴏᴍᴇᴛʜɪɴɢ](https://github.com/itsAakashz/School-Result-Checking-Website/) </b>
+
+
+## 🤝 Contributions
 Contributions to this project are welcome! Feel free to submit pull requests, raise issues, and provide feedback. Let's work together to improve the application and make it more robust and efficient.
 
 ## 📄 License
-Disclaimer
 [![GNU Affero General Public License 2.0](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html#header)    
 Licensed under [GNU AGPL 2.0.](https://github.com/yasirarism/MissKatyPyro/blob/master/LICENSE)
 WARNING: Selling The Codes To Other People For Money Is *Strictly Prohibited*. Or i will stop this project forever.
