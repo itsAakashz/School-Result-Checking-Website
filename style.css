@@ -2,27 +2,20 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     background-color: #f0f8ff;
 }
 
-header {
-    background-color: #0066cc;
-    color: white;
+h1 {
+    
     text-align: center;
-    padding: 10px 0;
-}
-
-main {
-    padding: 20px;
-    text-align: center;
-}
-
-h2 {
     color: #333;
+    margin-bottom: 20px;
 }
 
+/* Form styling */
 form {
+    text-align: center;
     margin-bottom: 20px;
 }
 
@@ -35,17 +28,13 @@ input[type="text"] {
     box-sizing: border-box;
 }
 
-input[type="submit"],
-button {
+input[type="submit"] {
     padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    color: white;
-}
-
-input[type="submit"] {
-    background-color: #007bff;
 }
 
 input[type="submit"]:hover {
@@ -53,79 +42,75 @@ input[type="submit"]:hover {
 }
 
 button {
+    padding: 10px 20px;
     background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 button:hover {
     background-color: #218838;
 }
 
+/* Report card styling */
+#reportCardContainer {
+    display: none; /* Hidden by default */
+    margin-top: 20px;
+}
+
 .report-card {
-    display: none; /* Initially hide the report card */
-    max-width: 800px;
-    margin: auto;
-    border: 2px solid #007bff;
-    border-radius: 10px;
+    width: 21cm;
+    height: 29.7cm; /* A4 size */
     padding: 20px;
     background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    border-radius: 5px;
 }
 
-table {
+.school-info {
+    text-align: center;
+}
+
+.student-info,
+.results-table {
+    margin-top: 20px;
+}
+
+.results-table table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
 }
 
-th, td {
-    padding: 10px;
+.results-table th, .results-table td {
     border: 1px solid #ccc;
-    text-align: left;
+    padding: 8px;
+    text-align: center;
 }
 
-th {
+.results-table th {
     background-color: #007bff;
     color: white;
-    font-weight: bold;
 }
 
-tr:nth-child(even) {
+.results-table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.result-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.result-header div {
-    flex: 1;
-}
-
-.result-header h3 {
-    margin: 0;
-}
-
-/* Responsive styling */
-@media (max-width: 600px) {
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+/* Print styles */
+/* @media print {
+    body * {
+        display: none;
     }
 
-    input[type="text"] {
-        width: 100%;
-        margin-right: 0;
+    #reportCardContainer, #reportCardContainer * {
+        display: block;
     }
 
-    input[type="submit"],
-    button {
-        width: 100%;
-        margin-bottom: 10px;
+    #reportCardContainer {
+        box-shadow: none;
+        border: none;
     }
-
-    th, td {
-        padding: 8px;
-    }
-}
+} */
