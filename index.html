@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Report Card</title>
+    <title>Student Marks</title>
     <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
 </head>
 <body>
-    <header>
-        <h1>ABC High School</h1> <!-- Add your school name here -->
-    </header>
-    <main>
-        <h2>Student Report Card</h2>
+    <h1>ABC SCHOOL RESULTS</h1>
 
-        <!-- Search form -->
-        <form id="searchForm">
-            <label for="rollNo">Enter Roll Number:</label>
-            <input type="text" id="rollNo" name="rollNo" required placeholder="e.g. 101">
-            <input type="submit" value="Search">
-            <button id="printButton" type="button" disabled>Print Report Card</button>
-        </form>
+    <!-- Search form -->
+    <form id="searchForm">
+        <label for="rollNo">Enter Roll Number:</label>
+        <input type="text" id="rollNo" name="rollNo" required placeholder="e.g. 101">
+        <input type="submit" value="Search">
+        <button id="printButton" type="button" disabled>Print Report Card</button>
+    </form>
 
-        <!-- Student report card -->
-        <div id="reportCard" class="report-card">
-            <!-- The report card will be populated here dynamically -->
-        </div>
-    </main>
+    <!-- Report card container -->
+    <div id="reportCardContainer">
+        <!-- Report card will be dynamically populated here -->
+    </div>
 
     <!-- Link to the JavaScript file -->
     <script src="script.js"></script>
