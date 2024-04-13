@@ -23,7 +23,7 @@
 
 1. **Clone the repository** to your local machine.
     ```shell
-    git clone [repository URL]
+    git clone https://github.com/itsAakashz/School-Result-Checking-Website/
     ```
 
 2. **Serve** the `index.html` file in your preferred web server.
