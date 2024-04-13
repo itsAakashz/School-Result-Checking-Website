@@ -1,6 +1,6 @@
 # 📚 Student Report Card Management
 
-![Report Card]([https://via.placeholder.com/150](https://telegra.ph/file/938af4154e480cc2c4d5c.png))
+![Report Card](https://telegra.ph/file/938af4154e480cc2c4d5c.png)
 
 DEMO WEBSITE- https://studentsresult.netlify.app/
 
