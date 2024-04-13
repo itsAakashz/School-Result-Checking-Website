@@ -1,7 +1,7 @@
 // Event listener for form submission
 document.getElementById('searchForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    const rollNo = document.getElementById('rollNo').value;
+    let rollNo = document.getElementById('rollNo').value;
     searchStudent(rollNo);
 });
 
@@ -10,9 +10,9 @@ function searchStudent(rollNo) {
     fetch('students.json')
         .then(response => response.json())
         .then(data => {
-            const student = data.find(student => student['ROLL NO'] == rollNo);
+            let student = data.find(student => student['ROLL NO'] == rollNo);
             if (student) {
-                displayReportCard(student);
+                displayStudent(student);
             } else {
                 alert(`Student with roll number ${rollNo} not found!`);
             }
@@ -22,93 +22,100 @@ function searchStudent(rollNo) {
         });
 }
 
-// Function to display student data in a report card format
-function displayReportCard(student) {
-    const reportCard = document.getElementById('reportCard');
-    reportCard.innerHTML = ''; // Clear previous search results
-
-    // Create header with student information
-    const headerDiv = document.createElement('div');
-    headerDiv.classList.add('result-header');
-
-    const studentInfo = `
-        <div>
-            <h3>Student Name:</h3>
-            <p>${student.NAME}</p>
-        </div>
-        <div>
-            <h3>Roll Number:</h3>
-            <p>${student['ROLL NO']}</p>
-        </div>
+// Function to display student data in the report card
+function displayStudent(student) {
+    const reportCardContainer = document.getElementById('reportCardContainer');
+    
+    // Create the report card content
+    const reportCard = document.createElement('div');
+    reportCard.className = 'report-card';
+    
+    // School information
+    const schoolInfo = document.createElement('div');
+    schoolInfo.className = 'school-info';
+    schoolInfo.innerHTML = `
+        <h2>ABC School</h2>
+        <p>123 Main Street, Anytown, State</p>
     `;
-    headerDiv.innerHTML = studentInfo;
-
-    reportCard.appendChild(headerDiv);
-
-    // Create table for marks
-    const table = document.createElement('table');
-    table.innerHTML = `
-        <thead>
-            <tr>
-                <th>Subject</th>
-                <th>Marks</th>
-                <th>Out of</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Math</td>
-                <td>${student.MATH}</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>Science</td>
-                <td>${student.SCIENCE}</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>Social Science</td>
-                <td>${student['SOCIAL SCIENCE']}</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>Hindi</td>
-                <td>${student.HINDI}</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>Sanskrit</td>
-                <td>${student.SANSKRIT}</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>English</td>
-                <td>${student.ENGLISH}</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>Total Marks</td>
-                <td>${student['OBTAIN MARKS']}</td>
-                <td>600</td>
-            </tr>
-            <tr>
-                <td>Percentage</td>
-                <td>${student.PERCENTAGE.toFixed(2)}%</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Result Status</td>
-                <td>${student['RESULT STATUS']}</td>
-                <td></td>
-            </tr>
-        </tbody>
+    reportCard.appendChild(schoolInfo);
+    
+    // Student information
+    const studentInfo = document.createElement('div');
+    studentInfo.className = 'student-info';
+    studentInfo.innerHTML = `
+        <h3>Student Information</h3>
+        <p>Roll No: ${student['ROLL NO']}</p>
+        <p>Name: ${student['NAME']}</p>
     `;
+    reportCard.appendChild(studentInfo);
+    
+    // Results table
+    const resultsTable = document.createElement('div');
+    resultsTable.className = 'results-table';
+    resultsTable.innerHTML = `
+        <h3>Results</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                    <th>Out of</th
 
-    reportCard.appendChild(table);
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Math</td>
+                    <td>${student['MATH']}</td>
+                    <td>100</td>
 
-    // Enable the print button and make the report card visible
+                </tr>
+                <tr>
+                    <td>Science</td>
+                    <td>${student['SCIENCE']}</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Social Science</td>
+                    <td>${student['SOCIAL SCIENCE']}</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Hindi</td>
+                    <td>${student['HINDI']}</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Sanskrit</td>
+                    <td>${student['SANSKRIT']}</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>English</td>
+                    <td>${student['ENGLISH']}</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Total Marks</td>
+                    <td>${student['OBTAIN MARKS']}</td>
+                    <td>${student['TOTAL MARKS']}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Obtained Percentage: ${student['PERCENTAGE']}%</p>
+        <p>Result Status: ${student['RESULT STATUS']}</p>
+    `;
+    reportCard.appendChild(resultsTable);
+    
+    // Append the report card to the container
+    reportCardContainer.innerHTML = '';
+    reportCardContainer.appendChild(reportCard);
+    
+    // Show the report card container
+    reportCardContainer.style.display = 'block';
+    
+    // Enable the print button
     document.getElementById('printButton').disabled = false;
-    reportCard.style.display = 'block';
 }
 
 // Event listener for print button
